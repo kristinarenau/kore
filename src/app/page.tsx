@@ -1,69 +1,97 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Hero from "@/components/Hero";
+import Section from "@/components/Section";
+import FadeIn from "@/components/FadeIn";
+import ServiceCard from "@/components/ServiceCard";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import Button from "@/components/Button";
+import { CASE_STUDIES, SERVICES } from "@/lib/constants";
 
-export default function Home() {
+export const metadata: Metadata = {
+  description:
+    "The Kore is a brand strategy and growth consultancy. We uncover the essence at the core of every brand and translate it into strategy that compounds.",
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+
+      <Section className="bg-linen/40" as="div">
+        <FadeIn className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-semibold text-ink md:text-4xl">
+            Strategy first. Everything else follows.
+          </h2>
+          <p className="mt-6 text-muted">
+            We work with founders and marketing leaders who know their product
+            is right but sense their story isn&rsquo;t. Our job is to find
+            the position only you can own — then build the systems that make
+            it repeatable across every channel, hire, and decision.
           </p>
+        </FadeIn>
+      </Section>
+
+      <Section as="div">
+        <FadeIn className="mb-14 max-w-xl">
+          <p className="text-xs font-medium tracking-[0.2em] text-stone-moss uppercase">
+            What we do
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-ink md:text-4xl">
+            Three disciplines, one strategy
+          </h2>
+        </FadeIn>
+        <div className="grid gap-6 md:grid-cols-3">
+          {SERVICES.map((service, i) => (
+            <FadeIn key={service.slug} delay={i * 0.1}>
+              <ServiceCard title={service.title} description={service.description} href="/services" />
+            </FadeIn>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </Section>
+
+      <Section className="bg-linen/40" as="div">
+        <FadeIn className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-xl">
+            <p className="text-xs font-medium tracking-[0.2em] text-stone-moss uppercase">
+              Selected work
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold text-ink md:text-4xl">
+              Recent engagements
+            </h2>
+          </div>
+          <Button href="/work" variant="secondary">
+            View all work
+          </Button>
+        </FadeIn>
+        <div className="grid gap-10 md:grid-cols-2">
+          {CASE_STUDIES.slice(0, 2).map((study, i) => (
+            <FadeIn key={study.slug} delay={i * 0.1}>
+              <CaseStudyCard
+                client={study.client}
+                title={study.title}
+                description={study.description}
+                href={`/work#${study.slug}`}
+                variant={i as 0 | 1}
+              />
+            </FadeIn>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <Section as="div">
+        <FadeIn className="mx-auto max-w-xl text-center">
+          <h2 className="text-3xl font-semibold text-ink md:text-4xl">
+            Ready to find your position?
+          </h2>
+          <p className="mt-6 text-muted">
+            Tell us where your brand stands today and where growth needs to
+            come from. We&rsquo;ll tell you if we&rsquo;re the right partner.
+          </p>
+          <div className="mt-10">
+            <Button href="/contact">Start Your Strategy</Button>
+          </div>
+        </FadeIn>
+      </Section>
+    </>
   );
 }

@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/**
+ * Design tokens for The Kore.
+ *
+ * Tailwind v4 uses CSS-first configuration: tokens declared in `@theme`
+ * become utility classes automatically (e.g. --color-sea-foam -> bg-sea-foam,
+ * text-sea-foam, border-sea-foam). There is no tailwind.config.ts to edit —
+ * this file IS the config. See README "Design system" for the rationale.
+ */
+@theme {
+  /* Brand palette — used sparingly, neutrals carry the page */
+  --color-sea-foam: #7c9182;
+  --color-sea-foam-light: #a8b8a1;
+  /* Darkened ~15% from brand Sea Foam (#7C9182) so white button text clears
+     WCAG AA (4.5:1). The literal brand hex only reaches ~3.4:1 with white
+     text — fine for borders/decoration, not for text a user must read. */
+  --color-sea-foam-deep: #697b6e;
+  --color-stone-moss: #6d750a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Neutral backgrounds */
+  --color-porcelain: #ece8e3;
+  --color-linen: #eee9e4;
+  --color-ivory: #f8f6f2;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Text */
+  --color-ink: #6d750a; /* primary text, per brand spec (Stone Moss) */
+  /* Darkened from the brand spec's #999999: #999 only reaches ~2.9:1 on our
+     backgrounds. This value clears 4.5:1 (WCAG AA) against Ivory (#F8F6F2),
+     the lightest background it's actually used on. */
+  --color-muted: #6e6e6e;
+
+  /* Typography */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Easing used across Framer Motion + CSS transitions for a consistent feel */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--color-sea-foam);
+  color: #fff;
+}
+
+/* Visible focus ring for keyboard users — never remove outline without replacing it */
+:focus-visible {
+  outline: 2px solid var(--color-sea-foam);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
