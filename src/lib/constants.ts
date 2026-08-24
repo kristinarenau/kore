@@ -10,7 +10,7 @@
 export const SITE = {
   name: "The Kore",
   tagline: "Strategic Clarity Drives Growth",
-  url: "https://thekore.vercel.app",
+  url: "https://kore-blue.vercel.app",
   description:
     "The Kore is a brand strategy and growth consultancy. We uncover the essence at the core of every brand and translate it into strategy that compounds.",
 } as const;
