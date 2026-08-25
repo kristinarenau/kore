@@ -16,6 +16,11 @@ const gradients = [
   "linear-gradient(135deg, #a8b8a1 0%, #6d750a 100%)",
 ];
 
+/**
+ * A case-study card: gradient placeholder image, client name, title, and
+ * description, linking through to the full case study.
+ * @category Cards
+ */
 export default function CaseStudyCard({
   client,
   title,

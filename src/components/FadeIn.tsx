@@ -10,7 +10,10 @@ interface FadeInProps {
   delay?: number;
 }
 
-/** Fades + lifts content in as it enters the viewport. Runs once per element. */
+/**
+ * Fades + lifts content in as it enters the viewport. Runs once per element.
+ * @category Primitives
+ */
 export default function FadeIn({ children, className = "", delay = 0 }: FadeInProps) {
   return (
     <motion.div

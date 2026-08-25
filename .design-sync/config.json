@@ -1,0 +1,29 @@
+{
+  "projectId": "5473abee-13ba-44f4-9ec2-45fe559f00c1",
+  "shape": "package",
+  "pkg": "the-kore-ui",
+  "globalName": "TheKoreUI",
+  "srcDir": ".design-sync/entry-src",
+  "tsconfig": ".design-sync/tsconfig.json",
+  "cssEntry": ".design-sync/.cache/tailwind/css/compiled.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "componentSrcMap": {
+    "Button": "src/components/Button.tsx",
+    "Section": "src/components/Section.tsx",
+    "FadeIn": "src/components/FadeIn.tsx",
+    "ValueCard": "src/components/ValueCard.tsx",
+    "ServiceCard": "src/components/ServiceCard.tsx",
+    "CaseStudyCard": "src/components/CaseStudyCard.tsx",
+    "LeafMark": "src/components/LeafComponents.tsx",
+    "LeafPattern": "src/components/LeafComponents.tsx",
+    "LeafCard": "src/components/LeafComponents.tsx",
+    "VeinDivider": "src/components/LeafComponents.tsx",
+    "GrowthSpiral": "src/components/LeafComponents.tsx",
+    "LeafAccent": "src/components/LeafComponents.tsx"
+  },
+  "overrides": {
+    "CaseStudyCard": {
+      "viewport": "900x900"
+    }
+  }
+}

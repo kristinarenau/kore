@@ -18,7 +18,10 @@ interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   href?: string;
 }
 
-/** Shared CTA button. Renders a `<Link>` when `href` is given, else a `<button>`. */
+/**
+ * Shared CTA button. Renders a `<Link>` when `href` is given, else a `<button>`.
+ * @category Primitives
+ */
 export default function Button({
   variant = "primary",
   href,

@@ -7,7 +7,10 @@ interface SectionProps {
   id?: string;
 }
 
-/** Consistent vertical rhythm (80px mobile / 120px desktop) for every page section. */
+/**
+ * Consistent vertical rhythm (80px mobile / 120px desktop) for every page section.
+ * @category Primitives
+ */
 export default function Section({
   children,
   className = "",

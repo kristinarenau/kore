@@ -6,6 +6,11 @@ interface ServiceCardProps {
   href?: string;
 }
 
+/**
+ * A service offering card: title, description, and a "Learn more" link with
+ * an animated underline. Lifts on hover.
+ * @category Cards
+ */
 export default function ServiceCard({ title, description, href = "/contact" }: ServiceCardProps) {
   return (
     <article className="group rounded-sm border border-stone-moss/10 bg-white/60 p-8 transition-all duration-300 ease-[var(--ease-luxury)] hover:-translate-y-1 hover:border-sea-foam/40 hover:shadow-xl hover:shadow-black/5">
