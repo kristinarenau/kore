@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import FadeIn from "@/components/FadeIn";
 import ServiceCard from "@/components/ServiceCard";
+import { GrowthSpiral } from "@/components/LeafComponents";
 import { SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -30,7 +31,14 @@ export default function ServicesPage() {
       <div className="mt-16 grid gap-6 md:grid-cols-3">
         {SERVICES.map((service, i) => (
           <FadeIn key={service.slug} delay={i * 0.1}>
-            <ServiceCard title={service.title} description={service.description} href="/contact" />
+            <div className="relative">
+              {service.slug === "growth-advisory" && (
+                <span aria-hidden="true" className="absolute top-6 right-6">
+                  <GrowthSpiral size={28} />
+                </span>
+              )}
+              <ServiceCard title={service.title} description={service.description} href="/contact" />
+            </div>
           </FadeIn>
         ))}
       </div>

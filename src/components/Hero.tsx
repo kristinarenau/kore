@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Button from "./Button";
+import { LeafPattern } from "./LeafComponents";
 import { MOTION, SITE } from "@/lib/constants";
 
 export default function Hero() {
@@ -19,6 +20,9 @@ export default function Hero() {
             "radial-gradient(60% 50% at 50% 30%, rgba(124,145,130,0.08) 0%, rgba(124,145,130,0) 70%)",
         }}
       />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <LeafPattern opacity={0.05} />
+      </div>
 
       <motion.p
         initial={{ opacity: 0, y: 12 }}

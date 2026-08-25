@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // design-sync: staged converter scripts + generated bundle output —
+    // gitignored, not project source.
+    ".ds-sync/**",
+    "ds-bundle/**",
   ]),
 ]);
 

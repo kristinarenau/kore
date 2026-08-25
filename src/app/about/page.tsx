@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import FadeIn from "@/components/FadeIn";
 import ValueCard from "@/components/ValueCard";
+import { LeafAccent } from "@/components/LeafComponents";
 import { CORE_VALUES } from "@/lib/constants";
+
+const HOW_WE_WORK = [
+  "Senior strategist on every engagement, start to finish",
+  "Fewer deliverables, built to hold up under pressure",
+  "Strategy first — every recommendation traces back to it",
+] as const;
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,6 +49,17 @@ export default function AboutPage() {
               deck of one hundred slides that isn&rsquo;t.
             </p>
           </div>
+
+          <ul className="mt-8 space-y-3">
+            {HOW_WE_WORK.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span aria-hidden="true" className="mt-0.5 shrink-0">
+                  <LeafAccent size={16} />
+                </span>
+                <span className="text-sm text-ink">{item}</span>
+              </li>
+            ))}
+          </ul>
         </FadeIn>
 
         <div className="space-y-6">

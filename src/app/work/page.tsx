@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import FadeIn from "@/components/FadeIn";
+import { LeafMark } from "@/components/LeafComponents";
 import { CASE_STUDIES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export default function WorkPage() {
   return (
     <Section as="div" className="min-h-[70vh]">
       <FadeIn className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-medium tracking-[0.2em] text-stone-moss uppercase">
+        <span aria-hidden="true" className="inline-block">
+          <LeafMark size={44} />
+        </span>
+        <p className="mt-2 text-xs font-medium tracking-[0.2em] text-stone-moss uppercase">
           Selected work
         </p>
         <h1 className="mt-4 text-4xl font-semibold text-ink md:text-5xl">

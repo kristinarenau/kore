@@ -5,6 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import ServiceCard from "@/components/ServiceCard";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import Button from "@/components/Button";
+import { LeafAccent, LeafCard, VeinDivider } from "@/components/LeafComponents";
 import { CASE_STUDIES, SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -31,6 +32,10 @@ export default function HomePage() {
         </FadeIn>
       </Section>
 
+      <div aria-hidden="true" className="mx-auto max-w-6xl px-6 md:px-12">
+        <VeinDivider />
+      </div>
+
       <Section as="div">
         <FadeIn className="mb-14 max-w-xl">
           <p className="text-xs font-medium tracking-[0.2em] text-stone-moss uppercase">
@@ -48,6 +53,18 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
+
+      <div className="px-6 py-16 md:px-12">
+        <FadeIn className="mx-auto max-w-2xl">
+          <LeafCard>
+            <p className="font-serif text-2xl text-ink italic">
+              &ldquo;We&rsquo;d rather hand you one page of positioning
+              that&rsquo;s genuinely true than a deck of one hundred slides
+              that isn&rsquo;t.&rdquo;
+            </p>
+          </LeafCard>
+        </FadeIn>
+      </div>
 
       <Section className="bg-linen/40" as="div">
         <FadeIn className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -80,7 +97,10 @@ export default function HomePage() {
 
       <Section as="div">
         <FadeIn className="mx-auto max-w-xl text-center">
-          <h2 className="text-3xl font-semibold text-ink md:text-4xl">
+          <span aria-hidden="true" className="inline-block">
+            <LeafAccent size={28} />
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold text-ink md:text-4xl">
             Ready to find your position?
           </h2>
           <p className="mt-6 text-muted">
